@@ -60,6 +60,7 @@
 		},
 		"align": [ "wide", "full" ]
 	},
+	"parent": [ "core/post-content" ],
 	"keywords": [ "newspaper", "columns", "flow", "text" ],
 	"textdomain": "multi-columns",
 	"editorScript": "file:./index.js",

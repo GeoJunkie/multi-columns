@@ -63,6 +63,9 @@
       "full"
     ]
   },
+  "parent": [
+    "core/post-content"
+  ],
   "keywords": [
     "newspaper",
     "columns",
