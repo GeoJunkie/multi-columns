@@ -8,6 +8,13 @@
 	"icon": "columns",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
+	"attributes": {
+		"content": {
+			"type": "string",
+			"source": "html",
+			"selector": "p"
+		}
+	},
 	"supports": {
 		"html": false
 	},
