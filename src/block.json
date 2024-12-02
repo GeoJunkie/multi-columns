@@ -26,28 +26,28 @@
 				}
 			}
 		},
-		"columnCount":{
-			"type":"number",
+		"columnCount": {
+			"type": "number",
 			"default": 4
 		},
-		"columnWidth":{
-			"type":"integer",
+		"columnWidth": {
+			"type": "integer",
 			"default": 200
 		},
-		"columnGap":{
-			"type":"integer",
+		"columnGap": {
+			"type": "integer",
 			"default": 40
 		},
-		"columnRuleStyle":{
-			"type":"string",
+		"columnRuleStyle": {
+			"type": "string",
 			"default": "solid"
 		},
-		"columnRuleWidth":{
-			"type":"integer",
+		"columnRuleWidth": {
+			"type": "integer",
 			"default": 1
 		},
-		"columnRuleColor":{
-			"type":"string",
+		"columnRuleColor": {
+			"type": "string",
 			"default": "#b8b8b8"
 		}
 	},
@@ -58,17 +58,9 @@
 			"margin": true,
 			"padding": true
 		},
-		"align": [
-			"wide",
-			"full"
-		]
+		"align": [ "wide", "full" ]
 	},
-	"keywords": [
-		"newspaper",
-		"columns",
-		"flow",
-		"text"
-	],
+	"keywords": [ "newspaper", "columns", "flow", "text" ],
 	"textdomain": "multi-columns",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

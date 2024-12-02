@@ -11,8 +11,8 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { 
-	useBlockProps, 
+import {
+	useBlockProps,
 	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
@@ -46,14 +46,14 @@ export default function Edit( { attributes, setAttributes } ) {
 	];
 	const MC_TEMPLATE = [
 		[ 'core/heading', { level: 2, placeholder: 'Heading...' } ],
-		[ 'core/paragraph', { placeholder: TEMPLATE_PARAGRAPHS[0] } ],
+		[ 'core/paragraph', { placeholder: TEMPLATE_PARAGRAPHS[ 0 ] } ],
 		[ 'core/heading', { level: 4, placeholder: 'Sub-heading...' } ],
-		[ 'core/paragraph', { placeholder: TEMPLATE_PARAGRAPHS[1] } ],
-	];	
-	const { 
-		columnCount, 
-		columnWidth, 
-		columnGap, 
+		[ 'core/paragraph', { placeholder: TEMPLATE_PARAGRAPHS[ 1 ] } ],
+	];
+	const {
+		columnCount,
+		columnWidth,
+		columnGap,
 		columnRuleStyle,
 		columnRuleWidth,
 		columnRuleColor,
@@ -69,41 +69,41 @@ export default function Edit( { attributes, setAttributes } ) {
 
 	const onChangeColumnCount = ( val ) => {
 		setAttributes( { columnCount: val } );
-	}
+	};
 
 	const onChangeColumnWidth = ( val ) => {
 		setAttributes( { columnWidth: Number( val ) } );
-	}
-	
+	};
+
 	const onChangeColumnGap = ( val ) => {
 		setAttributes( { columnGap: Number( val ) } );
-	}
-	
+	};
+
 	const onChangeColumnRuleStyle = ( val ) => {
 		setAttributes( { columnRuleStyle: val } );
-	}
-	
+	};
+
 	const onChangeColumnRuleWidth = ( val ) => {
 		setAttributes( { columnRuleWidth: Number( val ) } );
-	}
-	
+	};
+
 	const onChangeColumnRuleColor = ( val ) => {
 		setAttributes( { columnRuleColor: val } );
-	}
-	
+	};
+
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__('Column Settings', 'multi-columns')}>
+				<PanelBody title={ __( 'Column Settings', 'multi-columns' ) }>
 					<RangeControl
 						label={ __( 'Columns' ) }
 						value={ columnCount }
-						onChange={onChangeColumnCount }
+						onChange={ onChangeColumnCount }
 						min={ 2 }
 						max={ 6 }
 					/>
 					<NumberControl
-						label={__('Width', 'multi-columns')}
+						label={ __( 'Width', 'multi-columns' ) }
 						value={ columnWidth }
 						onChange={ onChangeColumnWidth }
 						min={ 120 }
@@ -111,7 +111,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						step={ 10 }
 					/>
 					<NumberControl
-						label={__('Gap', 'multi-columns')}
+						label={ __( 'Gap', 'multi-columns' ) }
 						value={ columnGap }
 						onChange={ onChangeColumnGap }
 						min={ 10 }
@@ -124,38 +124,38 @@ export default function Edit( { attributes, setAttributes } ) {
 						onChange={ onChangeColumnRuleStyle }
 						value={ columnRuleStyle }
 						options={ [
-							{ 
-								label: __('None', 'multi-columns'),
-								value: 'none' 
-							},
-							{ 
-								label: __('Solid', 'multi-columns'), 
-								value: 'solid' 
-							},
-							{ 
-								label: __('Dotted', 'multi-columns'), 
-								value: 'dotted' 
-							},
-							{ 
-								label: __('Dashed', 'multi-columns'), 
-								value: 'dashed' 
+							{
+								label: __( 'None', 'multi-columns' ),
+								value: 'none',
 							},
 							{
-								label: __('Double', 'multi-columns'),
-								value: 'double'
+								label: __( 'Solid', 'multi-columns' ),
+								value: 'solid',
 							},
 							{
-								label: __('Groove', 'multi-columns'),
-								value: 'groove'
+								label: __( 'Dotted', 'multi-columns' ),
+								value: 'dotted',
 							},
 							{
-								label: __('Ridge', 'multi-columns'),
-								value: 'ridge'
-							}
+								label: __( 'Dashed', 'multi-columns' ),
+								value: 'dashed',
+							},
+							{
+								label: __( 'Double', 'multi-columns' ),
+								value: 'double',
+							},
+							{
+								label: __( 'Groove', 'multi-columns' ),
+								value: 'groove',
+							},
+							{
+								label: __( 'Ridge', 'multi-columns' ),
+								value: 'ridge',
+							},
 						] }
 					/>
 					<NumberControl
-						label={__('Width', 'multi-columns')}
+						label={ __( 'Width', 'multi-columns' ) }
 						onChange={ onChangeColumnRuleWidth }
 						value={ columnRuleWidth }
 						min={ 1 }
@@ -163,10 +163,10 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 				<PanelColorSettings
-					title={__('Color settings', 'multi-columns')}
+					title={ __( 'Color settings', 'multi-columns' ) }
 					colorSettings={ [
 						{
-							label: __('Separator Color', 'multi-columns'),
+							label: __( 'Separator Color', 'multi-columns' ),
 							value: columnRuleColor,
 							onChange: onChangeColumnRuleColor,
 						},
@@ -174,7 +174,10 @@ export default function Edit( { attributes, setAttributes } ) {
 				/>
 			</InspectorControls>
 			<div { ...useBlockProps( { style: columnStyles } ) }>
-				<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } template={MC_TEMPLATE}/>
+				<InnerBlocks
+					allowedBlocks={ ALLOWED_BLOCKS }
+					template={ MC_TEMPLATE }
+				/>
 			</div>
 		</>
 	);

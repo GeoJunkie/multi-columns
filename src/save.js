@@ -16,18 +16,18 @@ import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save( { attributes } ) {
-	const { 
-		columnCount, 
-		columnWidth, 
-		columnGap, 
+	const {
+		columnCount,
+		columnWidth,
+		columnGap,
 		columnRuleStyle,
 		columnRuleWidth,
 		columnRuleColor,
 	} = attributes;
-	const columnStyles = { 
-		columnCount, 
-		columnWidth, 
-		columnGap, 
+	const columnStyles = {
+		columnCount,
+		columnWidth,
+		columnGap,
 		columnRuleStyle,
 		columnRuleWidth,
 		columnRuleColor,
