@@ -13,7 +13,11 @@
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start",
-		"wp-env": "wp-env"
+		"wp-env": "wp-env",
+		"wp-start": "wp-env start",
+		"wp-stop": "wp-env stop",
+		"wp-restart": "wp-env stop && wp-env start",
+		"flush": "wp-env run cli wp cache flush"
 	},
 	"devDependencies": {
 		"@wordpress/env": "^10.13.0",
