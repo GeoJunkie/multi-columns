@@ -11,9 +11,14 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps, RichText,InspectorControls } from '@wordpress/block-editor';
+import { 
+	useBlockProps, 
+	RichText,
+	InspectorControls,
+	PanelColorSettings,
+} from '@wordpress/block-editor';
 
-import { PanelBody, RangeControl } from '@wordpress/components';
+import { PanelBody, RangeControl, SelectControl } from '@wordpress/components';
 
 import NumberControl from './components/number-control';
 
@@ -34,8 +39,22 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
-	const { columnCount, columnWidth, columnGap } = attributes;
-	const columnStyles = { columnCount, columnWidth, columnGap };
+	const { 
+		columnCount, 
+		columnWidth, 
+		columnGap, 
+		columnRuleStyle,
+		columnRuleWidth,
+		columnRuleColor,
+	} = attributes;
+	const columnStyles = {
+		columnCount,
+		columnWidth,
+		columnGap,
+		columnRuleStyle,
+		columnRuleWidth,
+		columnRuleColor,
+	};
 
 	const onChangeContent = ( val ) => {
 		setAttributes( { content: val } );
@@ -48,11 +67,23 @@ export default function Edit( { attributes, setAttributes } ) {
 	const onChangeColumnWidth = ( val ) => {
 		setAttributes( { columnWidth: Number( val ) } );
 	}
-
+	
 	const onChangeColumnGap = ( val ) => {
 		setAttributes( { columnGap: Number( val ) } );
 	}
-
+	
+	const onChangeColumnRuleStyle = ( val ) => {
+		setAttributes( { columnRuleStyle: val } );
+	}
+	
+	const onChangeColumnRuleWidth = ( val ) => {
+		setAttributes( { columnRuleWidth: Number( val ) } );
+	}
+	
+	const onChangeColumnRuleColor = ( val ) => {
+		setAttributes( { columnRuleColor: val } );
+	}
+	
 	return (
 		<>
 			<InspectorControls>
@@ -80,6 +111,60 @@ export default function Edit( { attributes, setAttributes } ) {
 						max={ 100 }
 					/>
 				</PanelBody>
+				<PanelBody title="Column Separator">
+					<SelectControl
+						label="Separator Style"
+						onChange={ onChangeColumnRuleStyle }
+						value={ columnRuleStyle }
+						options={ [
+							{ 
+								label: 'None',
+								value: 'none' 
+							},
+							{ 
+								label: 'Solid', 
+								value: 'solid' 
+							},
+							{ 
+								label: 'Dotted', 
+								value: 'dotted' 
+							},
+							{ 
+								label: 'Dashed', 
+								value: 'dashed' 
+							},
+							{
+								label: 'Double',
+								value: 'double'
+							},
+							{
+								label: 'Groove',
+								value: 'groove'
+							},
+							{
+								label: 'Ridge',
+								value: 'ridge'
+							}
+						] }
+					/>
+					<NumberControl
+						label="Width"
+						onChange={ onChangeColumnRuleWidth }
+						value={ columnRuleWidth }
+						min={ 1 }
+						max={ 8 }
+					/>
+				</PanelBody>
+				<PanelColorSettings
+					title="Color settings"
+					colorSettings={ [
+						{
+							label: 'Separator Color',
+							value: columnRuleColor,
+							onChange: onChangeColumnRuleColor,
+						},
+					] }
+				/>
 			</InspectorControls>
 			<RichText
 				{ ...useBlockProps( { style: columnStyles }) }
