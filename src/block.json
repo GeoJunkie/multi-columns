@@ -103,6 +103,10 @@
 		{
 			"name": "drop-cap",
 			"label": "Drop Cap"
+		},
+		{
+			"name": "box-shadow",
+			"label": "Box Shadow"
 		}
 	],
 	"parent": [ "core/post-content" ],
