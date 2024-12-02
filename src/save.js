@@ -16,9 +16,11 @@ import { useBlockProps, RichText } from '@wordpress/block-editor';
  * @return {Element} Element to render.
  */
 export default function save( { attributes } ) {
+	const { columnCount } = attributes;
+	const columnStyles = { columnCount };
 	return (
 		<RichText.Content
-			{ ...useBlockProps.save() }
+			{ ...useBlockProps.save( { style: columnStyles } ) }
 			tagName='p'
 			value={ attributes.content }
 		/>

@@ -30,6 +30,10 @@
 					}
 				}
 			}
+		},
+		"columnCount":{
+			"type":"number",
+			"default": 4
 		}
 	},
 	"supports": {
