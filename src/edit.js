@@ -13,7 +13,7 @@ import { __ } from '@wordpress/i18n';
  */
 import { 
 	useBlockProps, 
-	RichText,
+	InnerBlocks,
 	InspectorControls,
 	PanelColorSettings,
 } from '@wordpress/block-editor';
@@ -39,6 +39,17 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit( { attributes, setAttributes } ) {
+	const ALLOWED_BLOCKS = [ 'core/heading', 'core/paragraph', 'core/image' ];
+	const TEMPLATE_PARAGRAPHS = [
+		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin finibus, lectus non interdum cursus, arcu sapien mollis lacus, et tincidunt odio nisi ut purus. Duis eleifend, magna placerat faucibus tincidunt, orci nulla ornare tortor, eget egestas tortor nunc quis sem. Cras in tortor justo. Nulla consectetur leo vel blandit consectetur. Fusce quis sapien ante. Vestibulum non varius augue, et ultricies urna. Integer hendrerit suscipit nibh.',
+		'Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras vestibulum mauris diam. Praesent semper diam a efficitur iaculis. Nullam lacinia augue quis lorem accumsan tempus. Maecenas dapibus velit eu blandit pretium. Nullam posuere ut ipsum in commodo. Fusce fringilla quis turpis a placerat. Etiam hendrerit velit a lacus varius ornare.',
+	];
+	const MC_TEMPLATE = [
+		[ 'core/heading', { level: 2, placeholder: 'Heading...' } ],
+		[ 'core/paragraph', { placeholder: TEMPLATE_PARAGRAPHS[0] } ],
+		[ 'core/heading', { level: 4, placeholder: 'Sub-heading...' } ],
+		[ 'core/paragraph', { placeholder: TEMPLATE_PARAGRAPHS[1] } ],
+	];	
 	const { 
 		columnCount, 
 		columnWidth, 
@@ -54,10 +65,6 @@ export default function Edit( { attributes, setAttributes } ) {
 		columnRuleStyle,
 		columnRuleWidth,
 		columnRuleColor,
-	};
-
-	const onChangeContent = ( val ) => {
-		setAttributes( { content: val } );
 	};
 
 	const onChangeColumnCount = ( val ) => {
@@ -166,13 +173,9 @@ export default function Edit( { attributes, setAttributes } ) {
 					] }
 				/>
 			</InspectorControls>
-			<RichText
-				{ ...useBlockProps( { style: columnStyles }) }
-				tagName="p"
-				onChange={ onChangeContent }
-				value={ attributes.content }
-				placeholder='Enter some text here...'
-			/>
+			<div { ...useBlockProps( { style: columnStyles } ) }>
+				<InnerBlocks allowedBlocks={ ALLOWED_BLOCKS } template={MC_TEMPLATE}/>
+			</div>
 		</>
 	);
 }
