@@ -94,7 +94,7 @@ export default function Edit( { attributes, setAttributes } ) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Column Settings">
+				<PanelBody title={__('Column Settings', 'multi-columns')}>
 					<RangeControl
 						label={ __( 'Columns' ) }
 						value={ columnCount }
@@ -103,7 +103,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						max={ 6 }
 					/>
 					<NumberControl
-						label="Width"
+						label={__('Width', 'multi-columns')}
 						value={ columnWidth }
 						onChange={ onChangeColumnWidth }
 						min={ 120 }
@@ -111,7 +111,7 @@ export default function Edit( { attributes, setAttributes } ) {
 						step={ 10 }
 					/>
 					<NumberControl
-						label="Gap"
+						label={__('Gap', 'multi-columns')}
 						value={ columnGap }
 						onChange={ onChangeColumnGap }
 						min={ 10 }
@@ -125,37 +125,37 @@ export default function Edit( { attributes, setAttributes } ) {
 						value={ columnRuleStyle }
 						options={ [
 							{ 
-								label: 'None',
+								label: __('None', 'multi-columns'),
 								value: 'none' 
 							},
 							{ 
-								label: 'Solid', 
+								label: __('Solid', 'multi-columns'), 
 								value: 'solid' 
 							},
 							{ 
-								label: 'Dotted', 
+								label: __('Dotted', 'multi-columns'), 
 								value: 'dotted' 
 							},
 							{ 
-								label: 'Dashed', 
+								label: __('Dashed', 'multi-columns'), 
 								value: 'dashed' 
 							},
 							{
-								label: 'Double',
+								label: __('Double', 'multi-columns'),
 								value: 'double'
 							},
 							{
-								label: 'Groove',
+								label: __('Groove', 'multi-columns'),
 								value: 'groove'
 							},
 							{
-								label: 'Ridge',
+								label: __('Ridge', 'multi-columns'),
 								value: 'ridge'
 							}
 						] }
 					/>
 					<NumberControl
-						label="Width"
+						label={__('Width', 'multi-columns')}
 						onChange={ onChangeColumnRuleWidth }
 						value={ columnRuleWidth }
 						min={ 1 }
@@ -163,10 +163,10 @@ export default function Edit( { attributes, setAttributes } ) {
 					/>
 				</PanelBody>
 				<PanelColorSettings
-					title="Color settings"
+					title={__('Color settings', 'multi-columns')}
 					colorSettings={ [
 						{
-							label: 'Separator Color',
+							label: __('Separator Color', 'multi-columns'),
 							value: columnRuleColor,
 							onChange: onChangeColumnRuleColor,
 						},
