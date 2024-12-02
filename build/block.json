@@ -34,6 +34,14 @@
     "columnCount": {
       "type": "number",
       "default": 4
+    },
+    "columnWidth": {
+      "type": "integer",
+      "default": 200
+    },
+    "columnGap": {
+      "type": "integer",
+      "default": 40
     }
   },
   "supports": {
