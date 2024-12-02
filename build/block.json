@@ -12,11 +12,16 @@
     "content": {
       "type": "string",
       "source": "html",
-      "selector": "p"
+      "selector": "div"
     }
   },
   "supports": {
-    "html": false
+    "html": true,
+    "color": {},
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
   },
   "textdomain": "multi-columns",
   "editorScript": "file:./index.js",
