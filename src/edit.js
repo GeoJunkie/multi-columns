@@ -179,6 +179,28 @@ export default function Edit( { attributes, setAttributes } ) {
 		}
 	};
 
+	const colorSettingsDropDown =
+		attributes.className === 'is-style-drop-cap'
+			? [
+					{
+						value: columnRuleColor,
+						onChange: onChangeColumnRuleColor,
+						label: __( 'Separator colour', 'multi-columns' ),
+					},
+					{
+						value: dropCapColor,
+						onChange: onChangeDropCapColor,
+						label: __( 'Drop Capital colour', 'multi-columns' ),
+					},
+			  ]
+			: [
+					{
+						value: columnRuleColor,
+						onChange: onChangeColumnRuleColor,
+						label: __( 'Separator colour', 'multi-columns' ),
+					},
+			  ];
+
 	return (
 		<>
 			<InspectorControls>
@@ -252,44 +274,30 @@ export default function Edit( { attributes, setAttributes } ) {
 				</PanelBody>
 				<PanelColorSettings
 					title={ __( 'Color settings', 'multi-columns' ) }
-					colorSettings={ [
-						{
-							label: __( 'Separator Color', 'multi-columns' ),
-							value: columnRuleColor,
-							onChange: onChangeColumnRuleColor,
-						},
-						{
-							value: dropCapColor,
-							onChange: onChangeDropCapColor,
-							label: __( 'Drop Cap Color', 'multi-columns' ),
-						},
-						{
-							value: boxShadowColor,
-							onChange: onChangeboxShadowColor,
-							label: __( 'Box Shadow Color', 'multi-columns' ),
-						},
-					] }
+					colorSettings={ colorSettingsDropDown }
 				/>
-				<PanelBody
-					title={ __( 'Drop Cap', 'multi-columns' ) }
-					initialOpen={ false }
-				>
-					<SelectControl
-						label={ __( 'Size', 'multi-columns' ) }
-						onChange={ onChangeDropCapSize }
-						value={ dropCapSize.size }
-						options={ [
-							{
-								label: __( 'Small', 'multi-columns' ),
-								value: 'small',
-							},
-							{
-								label: __( 'Large', 'multi-columns' ),
-								value: 'large',
-							},
-						] }
-					/>
-				</PanelBody>
+				{ attributes.className === 'is-style-drop-cap' && (
+					<PanelBody
+						title={ __( 'Drop Cap', 'multi-columns' ) }
+						initialOpen={ false }
+					>
+						<SelectControl
+							label={ __( 'Size', 'multi-columns' ) }
+							onChange={ onChangeDropCapSize }
+							value={ dropCapSize.size }
+							options={ [
+								{
+									label: __( 'Small', 'multi-columns' ),
+									value: 'small',
+								},
+								{
+									label: __( 'Large', 'multi-columns' ),
+									value: 'large',
+								},
+							] }
+						/>
+					</PanelBody>
+				) }
 				<PanelBody
 					title={ __( 'Box Shadow', 'multi-columns' ) }
 					initialOpen={ false }
