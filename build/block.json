@@ -118,6 +118,10 @@
     {
       "name": "drop-cap",
       "label": "Drop Cap"
+    },
+    {
+      "name": "drop-shadow",
+      "label": "Drop Shadow"
     }
   ],
   "parent": [
