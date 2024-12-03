@@ -193,6 +193,19 @@ export default function Edit( { attributes, setAttributes } ) {
 						label: __( 'Drop Capital colour', 'multi-columns' ),
 					},
 			  ]
+			: attributes.className === 'is-style-box-shadow'
+			? [
+					{
+						value: columnRuleColor,
+						onChange: onChangeColumnRuleColor,
+						label: __( 'Separator colour', 'multi-columns' ),
+					},
+					{
+						value: boxShadowColor,
+						onChange: onChangeboxShadowColor,
+						label: __( 'Box Shadow colour', 'multi-columns' ),
+					},
+			  ]
 			: [
 					{
 						value: columnRuleColor,
@@ -298,26 +311,28 @@ export default function Edit( { attributes, setAttributes } ) {
 						/>
 					</PanelBody>
 				) }
-				<PanelBody
-					title={ __( 'Box Shadow', 'multi-columns' ) }
-					initialOpen={ false }
-				>
-					<SelectControl
-						label={ __( 'Size', 'multi-columns' ) }
-						onChange={ onChangeBoxShadowSize }
-						value={ boxShadowSize.size }
-						options={ [
-							{
-								label: __( 'Small', 'multi-columns' ),
-								value: 'small',
-							},
-							{
-								label: __( 'Large', 'multi-columns' ),
-								value: 'large',
-							},
-						] }
-					/>
-				</PanelBody>
+				{ attributes.className === 'is-style-box-shadow' && (
+					<PanelBody
+						title={ __( 'Box Shadow', 'multi-columns' ) }
+						initialOpen={ false }
+					>
+						<SelectControl
+							label={ __( 'Size', 'multi-columns' ) }
+							onChange={ onChangeBoxShadowSize }
+							value={ boxShadowSize.size }
+							options={ [
+								{
+									label: __( 'Small', 'multi-columns' ),
+									value: 'small',
+								},
+								{
+									label: __( 'Large', 'multi-columns' ),
+									value: 'large',
+								},
+							] }
+						/>
+					</PanelBody>
+				) }
 			</InspectorControls>
 			<div { ...useBlockProps( { style: columnStyles } ) }>
 				<InnerBlocks
