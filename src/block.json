@@ -83,6 +83,18 @@
 		"columnRuleColor": {
 			"type": "string",
 			"default": "#b8b8b8"
+		},
+		"dropCapColor": {
+			"type": "string",
+			"default": "#b8b8b8"
+		},
+		"dropCapSize": {
+			"type": "object",
+			"default": {
+				"size": "small",
+				"fontSize": "3.8rem",
+				"lineHeight": "3.5rem"
+			}
 		}
 	},
 	"supports": {
@@ -103,10 +115,6 @@
 		{
 			"name": "drop-cap",
 			"label": "Drop Cap"
-		},
-		{
-			"name": "box-shadow",
-			"label": "Box Shadow"
 		}
 	],
 	"parent": [ "core/post-content" ],
