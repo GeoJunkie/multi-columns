@@ -59,6 +59,8 @@ export default function Edit( { attributes, setAttributes } ) {
 		columnRuleColor,
 		dropCapColor,
 		dropCapSize,
+		boxShadowColor,
+		boxShadowSize,
 	} = attributes;
 	const columnStyles = {
 		columnCount,
@@ -70,6 +72,11 @@ export default function Edit( { attributes, setAttributes } ) {
 		'--drop-cap-color': dropCapColor,
 		'--drop-cap-font-size': dropCapSize.fontSize,
 		'--drop-cap-line-height': dropCapSize.lineHeight,
+		'--box-shadow-color': boxShadowColor,
+		'--box-shadow-horizontal': boxShadowSize.horizontal,
+		'--box-shadow-vertical': boxShadowSize.vertical,
+		'--box-shadow-blur': boxShadowSize.blur,
+		'--box-shadow-spread': boxShadowSize.spread,
 	};
 
 	const onChangeColumnCount = ( val ) => {
@@ -126,6 +133,47 @@ export default function Edit( { attributes, setAttributes } ) {
 						size: 'small',
 						fontSize: '3.8rem',
 						lineHeight: '3.5rem',
+					},
+				} );
+		}
+	};
+
+	const onChangeboxShadowColor = ( val ) => {
+		setAttributes( { boxShadowColor: val } );
+	};
+
+	const onChangeBoxShadowSize = ( val ) => {
+		switch ( val ) {
+			case 'small':
+				setAttributes( {
+					boxShadowSize: {
+						size: 'small',
+						horizontal: '5px',
+						vertical: '5px',
+						blur: '10px',
+						spread: '10px',
+					},
+				} );
+				break;
+			case 'large':
+				setAttributes( {
+					boxShadowSize: {
+						size: 'large',
+						horizontal: '10px',
+						vertical: '10px',
+						blur: '20px',
+						spread: '20px',
+					},
+				} );
+				break;
+			default:
+				setAttributes( {
+					boxShadowSize: {
+						size: 'small',
+						horizontal: '5px',
+						vertical: '5px',
+						blur: '10px',
+						spread: '10px',
 					},
 				} );
 		}
@@ -215,6 +263,11 @@ export default function Edit( { attributes, setAttributes } ) {
 							onChange: onChangeDropCapColor,
 							label: __( 'Drop Cap Color', 'multi-columns' ),
 						},
+						{
+							value: boxShadowColor,
+							onChange: onChangeboxShadowColor,
+							label: __( 'Box Shadow Color', 'multi-columns' ),
+						},
 					] }
 				/>
 				<PanelBody
@@ -225,6 +278,26 @@ export default function Edit( { attributes, setAttributes } ) {
 						label={ __( 'Size', 'multi-columns' ) }
 						onChange={ onChangeDropCapSize }
 						value={ dropCapSize.size }
+						options={ [
+							{
+								label: __( 'Small', 'multi-columns' ),
+								value: 'small',
+							},
+							{
+								label: __( 'Large', 'multi-columns' ),
+								value: 'large',
+							},
+						] }
+					/>
+				</PanelBody>
+				<PanelBody
+					title={ __( 'Box Shadow', 'multi-columns' ) }
+					initialOpen={ false }
+				>
+					<SelectControl
+						label={ __( 'Size', 'multi-columns' ) }
+						onChange={ onChangeBoxShadowSize }
+						value={ boxShadowSize.size }
 						options={ [
 							{
 								label: __( 'Small', 'multi-columns' ),

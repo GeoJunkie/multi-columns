@@ -20,6 +20,6 @@
 	}
 
 	&.is-style-box-shadow {
-		box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+		box-shadow: var(--box-shadow-horizontal) var(--box-shadow-vertical) var(--box-shadow-blur) var(--box-shadow-spread) var(--box-shadow-color);
 	}
 }

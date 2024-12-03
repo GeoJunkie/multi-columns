@@ -25,6 +25,8 @@ export default function save( { attributes } ) {
 		columnRuleColor,
 		dropCapColor,
 		dropCapSize,
+		boxShadowColor,
+		boxShadowSize,
 	} = attributes;
 	const columnStyles = {
 		columnCount,
@@ -36,6 +38,11 @@ export default function save( { attributes } ) {
 		'--drop-cap-color': dropCapColor,
 		'--drop-cap-font-size': dropCapSize.fontSize,
 		'--drop-cap-line-height': dropCapSize.lineHeight,
+		'--box-shadow-color': boxShadowColor,
+		'--box-shadow-horizontal': boxShadowSize.horizontal,
+		'--box-shadow-vertical': boxShadowSize.vertical,
+		'--box-shadow-blur': boxShadowSize.blur,
+		'--box-shadow-spread': boxShadowSize.spread,
 	};
 	return (
 		<div { ...useBlockProps.save() } style={ columnStyles }>

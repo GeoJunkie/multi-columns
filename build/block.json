@@ -95,6 +95,20 @@
         "fontSize": "3.8rem",
         "lineHeight": "3.5rem"
       }
+    },
+    "boxShadowColor": {
+      "type": "string",
+      "default": "#b8b8b8"
+    },
+    "boxShadowSize": {
+      "type": "object",
+      "default": {
+        "size": "small",
+        "horizontal": "5px",
+        "vertical": "5px",
+        "blur": "10px",
+        "spread": "10px"
+      }
     }
   },
   "supports": {
@@ -120,8 +134,8 @@
       "label": "Drop Cap"
     },
     {
-      "name": "drop-shadow",
-      "label": "Drop Shadow"
+      "name": "box-shadow",
+      "label": "Box Shadow"
     }
   ],
   "parent": [
